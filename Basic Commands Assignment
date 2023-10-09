@@ -1,0 +1,144 @@
+10 objectives - 3 points each = 30 points
+
+Use this text document for your template, save your document as loginid.txt, for example, the user fbear would save the document as fbear.txt
+
+When finished upload the document to Canvas
+
+Show all commands by copy/paste.
+==========================================
+
+
+1.
+Change to the /proc directory.
+• What CPU(s) is the system running on?
+	#expected output similar to:
+	model name	: AMD Ryzen 9 5950X 16-Core Processor
+
+---------------answer------------
+
+Input: cat /proc/cpuinfo | grep "model name"
+Output: 11th Gen Intel(R) Core(TM) i7-11370H @ 3.30GHz
+
+
+2.
+• How much RAM does it currently use? - in Gb
+
+	#expected output similar to:
+	MemTotal:       131806812 kB
+
+---------------answer------------
+
+Input: cat /proc/meminfo | grep "MemTotal"
+Output: 2025252 kB
+
+
+3.
+• How much swap space do you have?
+
+		#expected output similar to:
+		Filename		Type		Size		Used	Priority
+		/dev/nvme1n1p1  partition	4194300		0		-2
+
+---------------answer------------		
+
+Input: cat /proc/swaps
+Output: /dev/sda2	partition	1048572 0	-2
+
+
+4.
+• How many hours has the system been running?
+
+		#expected output similar to:	
+		03:22:56 up 3 days,  9:53,  0 users,  load average: 0.13, 0.03, 0.09
+
+---------------answer------------
+
+Input: uptime
+Output: 15:58:52 up 0:18 3 users, load average: 0.01, 0.13, 0.15
+
+
+
+5. 
+• Which filesystems are known by your system?
+
+	#use either of the two listed options in the presentation slides, but cut only the
+	"/" and "/home" partitions for simplicity
+	
+---------------answer------------
+
+Input: df -T | grep -E "/$|/home$"	
+Output: /dev/sda3 	xfs 	6816748 5942068  874680 88%	
+	
+6.	
+• Which release are you running?
+
+	#expected output similar to:
+	PRETTY_NAME="Linux Mint 20"     #note, this file may not be on every system
+	
+---------------answer------------
+	
+Input: lsb_release -a
+Output: LSB VERSION: N/A
+	openSUSE
+	openSUSE 15.3
+	15.3	
+	
+	
+	
+7.
+• Are there any issues or messages of the day?
+
+	#if numerous, give head -5 only
+---------------answer------------
+	
+Input: cat /etc/motd | head -5
+Output: have a lof of fun...	
+	
+	
+	
+	
+8.	
+• How many users are defined on your system?
+
+	#expected output similar to:
+	25
+	
+	
+---------------answer------------
+	
+Input: cat /etc/passwd | wc -l
+Output: 33	
+	
+	
+9.	
+• How many groups?
+
+	#expected output similar to:
+	15
+	
+	
+---------------answer------------
+
+Input: getent group | wc -l
+Output: 55	
+	
+	
+
+10.	
+• Which version of bash is installed on this system?
+	
+	#expected output similar to:
+	GNU bash, version 5.1.16(1)-release (x86_64-pc-linux-gnu)
+	
+---------------answer------------
+
+Input: bash --version
+Output: 
+GNU bash, version 4.4.23(1)-release (x86_64-suse-linux-gnu)
+Copyright (C) 2016 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+
+This is free software; you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+
